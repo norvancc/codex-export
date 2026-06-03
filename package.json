@@ -1,0 +1,39 @@
+{
+  "name": "codex-export",
+  "version": "0.1.0",
+  "description": "Export OpenAI Codex CLI sessions into human-readable Markdown, HTML, and JSON documents.",
+  "type": "module",
+  "bin": {
+    "codex-export": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "examples"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "keywords": [
+    "codex",
+    "cli",
+    "export",
+    "markdown",
+    "developer-tools"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.8.6",
+    "commander": "^14.0.2",
+    "fast-glob": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}
