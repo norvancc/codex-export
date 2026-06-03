@@ -96,7 +96,7 @@ The tests use Node's built-in test runner and import the compiled ESM output fro
 
 1. Create an npm access token with publish permission.
 2. In GitHub repo settings, add `NPM_TOKEN` in **Settings → Secrets and variables → Actions**.
-3. Ensure package name/version in `package.json` are ready.
+3. Bump `package.json` version (`npm version patch|minor|major`) before each release.
 4. Publish from local:
 
 ```bash
@@ -104,7 +104,10 @@ npm run prepublishOnly
 npm publish
 ```
 
-5. Or publish from GitHub by creating a Release (triggers `.github/workflows/publish-npm.yml`).
+5. Or publish from GitHub by creating and publishing a Release (triggers `.github/workflows/publish-npm.yml` via `release.published`).
+6. If needed, manually trigger the same workflow from **Actions → Publish to npm → Run workflow** (`workflow_dispatch`).
+
+The publish workflow validates that `package.json` version is not already on npm before running `npm publish`.
 
 ## Example
 
