@@ -17,6 +17,14 @@ jobs:
         with:
           node-version: 20.x
           registry-url: https://registry.npmjs.org
+      - name: Validate package version is not already published
+        run: |
+          PACKAGE_NAME=$(npm pkg get name | tr -d '"')
+          PACKAGE_VERSION=$(npm pkg get version | tr -d '"')
+          if npm view "${PACKAGE_NAME}@${PACKAGE_VERSION}" version >/dev/null 2>&1; then
+            echo "::error::${PACKAGE_NAME}@${PACKAGE_VERSION} is already published on npm. Bump package.json version and republish the release."
+            exit 1
+          fi
       - run: npm ci
       - run: npm publish
         env:
