@@ -101,7 +101,7 @@ The tests use Node's built-in test runner and import the compiled ESM output fro
 
 ```bash
 npm run prepublishOnly
-npm run publish:npm
+npm publish
 ```
 
 5. Or publish from GitHub by creating a Release (triggers `.github/workflows/publish-npm.yml`).
