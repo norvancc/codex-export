@@ -92,6 +92,20 @@ npm test
 
 The tests use Node's built-in test runner and import the compiled ESM output from `dist`.
 
+## Publish to npm
+
+1. Create an npm access token with publish permission.
+2. In GitHub repo settings, add `NPM_TOKEN` in **Settings → Secrets and variables → Actions**.
+3. Ensure package name/version in `package.json` are ready.
+4. Publish from local:
+
+```bash
+npm run prepublishOnly
+npm run publish:npm
+```
+
+5. Or publish from GitHub by creating a Release (triggers `.github/workflows/publish-npm.yml`).
+
 ## Example
 
 See [examples/session.sample.jsonl](examples/session.sample.jsonl) for a minimal Codex session fixture.
