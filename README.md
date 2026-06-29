@@ -1,14 +1,22 @@
 # codex-export
 
-`codex-export` exports OpenAI Codex CLI sessions from `~/.codex/sessions` into readable Markdown, HTML, or JSON.
+`codex-export` is an OpenAI Codex CLI session exporter that turns `~/.codex/sessions` history into readable Markdown, HTML, or JSON.
 
-It is designed for engineering worklogs, retrospectives, GitHub discussions, Notion or Feishu docs, internal reports, and long-term archives of AI-assisted development.
+It is designed for AI coding worklogs, retrospectives, GitHub discussions, Notion or Feishu docs, internal reports, and long-term archives of AI-assisted development.
+
+中文简介：`codex-export` 可以把 OpenAI Codex CLI 会话记录导出为 Markdown、HTML 或 JSON，适合沉淀开发日志、复盘记录、团队文档和 AI 协作归档。
+
+Project links:
+
+- GitHub repository: https://github.com/norvancc/codex-export
+- Documentation site: https://norvancc.github.io/codex-export/
 
 ## Features
 
 - Interactive terminal UI with fuzzy session search, arrow navigation, pagination, and latest-first sorting
 - Command mode for scripts and CI workflows
 - Markdown, HTML, and JSON output
+- Converts Codex chat history into reusable engineering notes and archives
 - Clean conversation, full conversation, tool-call, and tool-result scopes
 - Automatic session discovery from `~/.codex/sessions/**/*.jsonl`
 - Secret redaction for API keys, bearer tokens, authorization headers, AWS credentials, and common `.env` values
@@ -67,20 +75,31 @@ Interactive mode also exposes "Full Conversation"; the current parser still excl
 Markdown is the default:
 
 ```bash
-codex-export --last --format md --output docs/codex-session.md
+codex-export --last --format md --output exports/codex-session.md
 ```
 
 HTML:
 
 ```bash
-codex-export --last --format html --output docs/codex-session.html
+codex-export --last --format html --output exports/codex-session.html
 ```
 
 JSON:
 
 ```bash
-codex-export --last --format json --with-tool-results --output docs/codex-session.json
+codex-export --last --format json --with-tool-results --output exports/codex-session.json
 ```
+
+## Use Cases
+
+- Export Codex CLI session history into Markdown for project worklogs
+- Convert AI coding transcripts into HTML for sharing with teammates
+- Archive Codex chats as JSON for automation, search, and reporting
+- Create daily, weekly, and timeline reports from local Codex usage
+
+## Search-Friendly Summary
+
+If you are looking for a Codex session exporter, Codex transcript exporter, OpenAI Codex CLI history export tool, or a way to convert AI coding sessions into Markdown, HTML, or JSON, this repository is built for that workflow.
 
 ## Development
 

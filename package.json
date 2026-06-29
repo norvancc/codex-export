@@ -2,6 +2,14 @@
   "name": "codex-export",
   "version": "0.1.0",
   "description": "Export OpenAI Codex CLI sessions into human-readable Markdown, HTML, and JSON documents.",
+  "homepage": "https://norvancc.github.io/codex-export/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norvancc/codex-export.git"
+  },
+  "bugs": {
+    "url": "https://github.com/norvancc/codex-export/issues"
+  },
   "type": "module",
   "bin": {
     "codex-export": "./dist/cli.js"
@@ -19,10 +27,16 @@
   },
   "keywords": [
     "codex",
+    "openai",
     "cli",
     "export",
     "markdown",
-    "developer-tools"
+    "html",
+    "json",
+    "session-export",
+    "transcript-export",
+    "developer-tools",
+    "ai-worklog"
   ],
   "license": "MIT",
   "publishConfig": {
