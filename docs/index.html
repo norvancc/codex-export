@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>codex-export | OpenAI Codex CLI Session Exporter</title>
+    <meta
+      name="description"
+      content="codex-export exports OpenAI Codex CLI sessions into Markdown, HTML, and JSON for AI coding worklogs, documentation, and archives."
+    />
+    <meta
+      name="keywords"
+      content="codex-export, OpenAI Codex CLI, Codex session exporter, transcript exporter, markdown export, html export, json export, AI coding worklog"
+    />
+    <link rel="canonical" href="https://norvancc.github.io/codex-export/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="codex-export | OpenAI Codex CLI Session Exporter" />
+    <meta
+      property="og:description"
+      content="Export OpenAI Codex CLI sessions into readable Markdown, HTML, and JSON."
+    />
+    <meta property="og:url" content="https://norvancc.github.io/codex-export/" />
+    <meta property="og:site_name" content="codex-export" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="codex-export | OpenAI Codex CLI Session Exporter" />
+    <meta
+      name="twitter:description"
+      content="Convert Codex CLI session history into Markdown, HTML, and JSON for worklogs and archives."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1020;
+        --panel: #131a2e;
+        --panel-border: #26314f;
+        --text: #ebefff;
+        --muted: #b6c0dd;
+        --accent: #8ab4ff;
+        --accent-2: #9ef0c8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #0b1020 0%, #121933 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 64px 24px 80px;
+      }
+
+      .hero,
+      .panel {
+        background: rgba(19, 26, 46, 0.92);
+        border: 1px solid var(--panel-border);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+      }
+
+      .hero {
+        margin-bottom: 24px;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.15;
+        margin: 0 0 16px;
+      }
+
+      h1 {
+        font-size: clamp(2.25rem, 6vw, 4rem);
+      }
+
+      h2 {
+        font-size: 1.35rem;
+        margin-top: 28px;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .lead {
+        font-size: 1.1rem;
+        max-width: 760px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #08101f;
+        background: var(--accent-2);
+      }
+
+      .button.secondary {
+        color: var(--text);
+        background: transparent;
+        border: 1px solid var(--panel-border);
+      }
+
+      .grid {
+        display: grid;
+        gap: 24px;
+        margin-top: 24px;
+      }
+
+      @media (min-width: 800px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      code,
+      pre {
+        font-family: "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      pre {
+        background: #0a1224;
+        border: 1px solid var(--panel-border);
+        border-radius: 16px;
+        padding: 18px;
+        overflow-x: auto;
+        color: #dce6ff;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="muted">OpenAI Codex CLI session exporter</p>
+        <h1>codex-export</h1>
+        <p class="lead">
+          Export OpenAI Codex CLI sessions into readable Markdown, HTML, and JSON for AI coding
+          worklogs, team documentation, retrospectives, and long-term archives.
+        </p>
+        <p class="lead">
+          中文简介：将 Codex CLI 会话记录导出为 Markdown、HTML、JSON，方便做开发日志、复盘文档和 AI 协作归档。
+        </p>
+        <div class="actions">
+          <a class="button" href="https://github.com/norvancc/codex-export">View on GitHub</a>
+          <a class="button secondary" href="https://github.com/norvancc/codex-export#readme">Read the README</a>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="panel">
+          <h2>Why people use it</h2>
+          <ul>
+            <li>Convert Codex session history into Markdown worklogs</li>
+            <li>Share HTML exports with teammates or stakeholders</li>
+            <li>Keep JSON archives for automation and reporting pipelines</li>
+            <li>Generate daily, weekly, and timeline reports from local Codex usage</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2>Key features</h2>
+          <ul>
+            <li>Interactive session picker with fuzzy search and latest-first sorting</li>
+            <li>CLI mode for scripts, batch export, and CI workflows</li>
+            <li>Clean, full, tool-call, and tool-result export scopes</li>
+            <li>Secret redaction for common API keys, tokens, and credentials</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="panel" style="margin-top: 24px">
+        <h2>Quick start</h2>
+        <pre><code>npm install
+npm run build
+npm link
+
+codex-export --last --format md --output exports/codex-session.md</code></pre>
+      </section>
+
+      <section class="panel" style="margin-top: 24px">
+        <h2>Search-friendly summary</h2>
+        <p>
+          codex-export is a Codex session exporter, OpenAI Codex CLI history export tool, transcript
+          exporter, and AI coding archive utility. It helps turn Codex chats into Markdown, HTML, or
+          JSON for search, documentation, reporting, and knowledge management.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
