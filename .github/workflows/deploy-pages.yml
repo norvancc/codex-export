@@ -21,10 +21,32 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Check Pages configuration
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${{ github.repository }}/pages" >/dev/null 2>pages-error.log; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            status="$(grep -oE 'HTTP [0-9]{3}' pages-error.log | tail -n1 | cut -d' ' -f2)"
+
+            if [ "$status" = "404" ]; then
+              echo "enabled=false" >> "$GITHUB_OUTPUT"
+              echo "GitHub Pages is not enabled for ${{ github.repository }}; skipping deploy." >> "$GITHUB_STEP_SUMMARY"
+            else
+              cat pages-error.log >&2
+              exit 1
+            fi
+          fi
       - uses: actions/checkout@v4
+        if: steps.pages.outputs.enabled == 'true'
       - uses: actions/configure-pages@v5
+        if: steps.pages.outputs.enabled == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.enabled == 'true'
         with:
           path: docs
       - id: deployment
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/deploy-pages@v4
